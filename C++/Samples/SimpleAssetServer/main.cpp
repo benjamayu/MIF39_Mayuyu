@@ -5,19 +5,20 @@
 
 #include <fstream>
 #include <iostream>
+#include <unistd.h>
 
 int main ( int argc, char** argv ) {
     QUuid fake;
     SimpleTcpStartPoint::Options options;
     options.connectionPort = 3000;
-    options.maximumConnectedClients = 1;
+    options.maximumConnectedClients = 10;
     SimpleTcpStartPoint server ( options );
     server.start();
     QUuid client;
-    while ( client == fake ) {
-        client = server.listen();
-    }
-//    while ( true ) {
+    while ( true ) {
+        while ( client == fake ) {
+            client = server.listen();
+        }
         ByteBuffer temp;
         ByteBuffer message;
         server.receive(client,temp);
@@ -35,7 +36,8 @@ int main ( int argc, char** argv ) {
         }
 //        std::cout << message.getData() << std::endl;
 //        server.send(client,message); std::cout << "Sent : " << message.getLength() << " bytes" << std::endl;
-//    }
+        client = fake;
+    }
     server.stop ();
     return 0;
 }

@@ -2,6 +2,9 @@
 #include "Wavefront/wavefront.hpp"
 
 #include "TcpNetworking/simpletcpstartpoint.hpp"
+#include <fstream>
+#include <iostream>
+#include <string>
 
 int main ( int argc, char** argv ) {
     QUuid fake;
@@ -14,11 +17,25 @@ int main ( int argc, char** argv ) {
     while ( client == fake ) {
         client = server.listen();
     }
-    while ( true ) {
+//    while ( true ) {
+        ByteBuffer temp;
         ByteBuffer message;
+        server.receive(client,temp);
+        char* nom = (char*)temp.getData();
         server.receive(client,message); std::cout << "Recv : " << message.getLength() << " bytes" << std::endl;
-        server.send(client,message); std::cout << "Sent : " << message.getLength() << " bytes" << std::endl;
-    }
+
+        std::fstream myfile;
+        myfile.open(nom, std::ios::out);
+        if(myfile.is_open()) {
+            myfile.write((char *)message.getData(), message.getLength());
+            myfile.close();
+        }
+        else {
+            std::cout << "BUG" << std::endl;
+        }
+//        std::cout << message.getData() << std::endl;
+//        server.send(client,message); std::cout << "Sent : " << message.getLength() << " bytes" << std::endl;
+//    }
     server.stop ();
     return 0;
 }

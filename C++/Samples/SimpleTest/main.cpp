@@ -29,13 +29,11 @@ int main ( int argc, char** argv ) {
 //    SharedResourcePtr ptr = ress [0];
 //    ByteBuffer message = ResourceHolder::ToBuffer(ptr);
 
-    const char* temp = "13";
-    unsigned char* mess = (unsigned char*) temp;
-//    ByteBuffer message( mess, strlen(temp) );
 
     std::fstream myfile;
     myfile.open(argv[1], std::ios::in);
     if(myfile.is_open()) {
+
         // sauvegarder la position courante
         long pos = myfile.tellg();
         // se placer en fin de fichier
@@ -59,6 +57,7 @@ int main ( int argc, char** argv ) {
 
 
         SimpleTcpEndPoint::Options options;
+//        options.serverIP = "192.168.1.111";
         options.serverIP = "127.0.0.1";
         options.connectionPort = 3000;
         SimpleTcpEndPoint client ( options );

@@ -2,9 +2,9 @@
 #include "Wavefront/wavefront.hpp"
 
 #include "TcpNetworking/simpletcpstartpoint.hpp"
+
 #include <fstream>
 #include <iostream>
-#include <string>
 
 int main ( int argc, char** argv ) {
     QUuid fake;

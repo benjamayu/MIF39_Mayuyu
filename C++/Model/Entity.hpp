@@ -1,22 +1,22 @@
 #ifndef ENTITY_H
 #define ENTITY_H
 
-class Entity
-{
+class Entity {
 public:
-    Entity (long _id);
-    long getId();
+    Entity (const unsigned long _id);
+    const unsigned long getId();
     long getX();
-    long setX(long _x);
+    void setX(long _x);
     long getY();
-    long setY(long _y);
+    void setY(long _y);
     long getZ();
-    long setZ(long _z);
+    void setZ(long _z);
+    float getDirection();
+    void setDirection(float _direction);
 protected:
-    long id;
-    long x;
-    long y;
-    long z;
+    const unsigned long id;
+    long x,y,z;
+    float direction;
 };
 
 #endif

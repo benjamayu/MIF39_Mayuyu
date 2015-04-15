@@ -1,8 +1,8 @@
 #ifndef NPC_H
 #define NPC_H
 
-class NPC
-{
+class NPC : public Entity {
+	
 };
 
 #endif

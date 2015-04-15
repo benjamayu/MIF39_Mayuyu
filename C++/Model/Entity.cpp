@@ -30,9 +30,9 @@ void Entity::setZ(long _z){
 	z=_z;
 }
 
-float Entity::getDirection(){
-	return direction;
+float Entity::getOrientation(){
+    return orientation;
 }
-void Entity::setDirection(float _direction){
-	direction=_direction;
+void Entity::setOrientation(float _orientation){
+    orientation=_orientation;
 }

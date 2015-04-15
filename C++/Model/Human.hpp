@@ -3,9 +3,9 @@
 
 class Human : public NPC {
 	public:
-	Human(unsigned int _fatigue,unsigned int _peur);
+    Human(unsigned int _stamina,unsigned int _fear);
 	protected:
-	unsigned int fatigue,peur;
+    unsigned int stamina, fear;
 };
 
 #endif

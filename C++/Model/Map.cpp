@@ -7,7 +7,7 @@ unsigned long Map::getWidth(){
 void setWidth(unsigned long _width){
 	width=_width;
 }
-unsigned long Map::getHeight();
+unsigned long Map::getHeight(){
 	return height;
 }
 void setHeight(unsigned long _height){

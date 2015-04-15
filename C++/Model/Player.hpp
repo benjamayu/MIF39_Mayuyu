@@ -4,12 +4,12 @@
 class Player : public Entity {
 public:
     Player();
-    unsigned int getFatigue();
-    void setFatigue(unsigned int _fatigue);
+    unsigned int getStamina();
+    void setStamina(unsigned int _Stamina);
     unsigned int getScore();
     void setScore(unsigned int _score);
 protected:
-    unsigned int fatigue,score;
+    unsigned int stamina,score;
 };
 
 #endif

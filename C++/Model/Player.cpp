@@ -1,11 +1,11 @@
 #include "Player.hpp"
 
-Player::Player() : fatigue(0),score(0) {}
-unsigned int Player::getFatigue(){
-	return fatigue;
+Player::Player() : fatigue(100),score(0) {}
+unsigned int Player::getStamina(){
+    return stamina;
 }
-void Player::setFatigue(unsigned int _fatigue){
-	fatigue=_fatigue;
+void Player::setStamina(unsigned int _stamina){
+    stamina=_stamina;
 }
 unsigned int Player::getScore(){
 	return score;

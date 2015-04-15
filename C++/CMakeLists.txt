@@ -39,5 +39,5 @@ add_subdirectory(FuzzyLogicBehaviour)
 add_subdirectory(QImageLoader)
 
 add_subdirectory(Samples)
-#add_subdirectory(Model)
+add_subdirectory(Model)
 add_subdirectory(Controller)

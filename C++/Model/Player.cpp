@@ -1,6 +1,7 @@
 #include "Player.hpp"
 
-Player::Player() : fatigue(100),score(0) {}
+Player::Player(const unsigned long _id) : stamina(100),score(0),Entity::Entity(_id) {}
+
 unsigned int Player::getStamina(){
     return stamina;
 }

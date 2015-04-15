@@ -32,10 +32,8 @@ int main ( int argc, char** argv ) {
             myfile.close();
         }
         else {
-            std::cout << "BUG" << std::endl;
+            std::cout << "Erreur lors de l'ouverture du fichier" << std::endl;
         }
-//        std::cout << message.getData() << std::endl;
-//        server.send(client,message); std::cout << "Sent : " << message.getLength() << " bytes" << std::endl;
         client = fake;
     }
     server.stop ();

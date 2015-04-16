@@ -3,6 +3,7 @@
 
 class Map {
 public:
+    Map();
     Map(unsigned long _width,unsigned long _height);
     unsigned long getWidth();
     void setWidth(unsigned long _width);

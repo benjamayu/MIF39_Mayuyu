@@ -1,5 +1,6 @@
 #include "Map.hpp"
 
+Map::Map(){}
 Map::Map(unsigned long _width,unsigned long _height) : width(_width),height(_height) {}
 
 unsigned long Map::getWidth(){

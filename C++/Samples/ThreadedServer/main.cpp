@@ -5,6 +5,8 @@
 #include "Networking/networking.hpp"
 #include "TcpNetworking/simpletcpstartpoint.hpp"
 
+#include <pthread.h>
+
 typedef struct {
     QUuid uuid;
     SimpleTcpStartPoint* server;
@@ -63,7 +65,7 @@ void* client_thread_receive ( void* data )
             message = new ByteBuffer;
             OnReceive ( client->uuid );
         }
-        pthread_yield_np();
+        pthread_yield();
     }
     return NULL;
 }
@@ -79,7 +81,7 @@ void* client_thread_send ( void* data )
             client->server->send ( client->uuid, *message );
             delete message;
         }
-        pthread_yield_np();
+        pthread_yield();
     }
     return NULL;
 }
@@ -94,7 +96,7 @@ void* listen_thread ( void* data )
             client = server->listen();
         }
         OnConnect ( client );
-        pthread_yield_np();
+        pthread_yield();
     }
     return NULL;
 }
@@ -110,7 +112,7 @@ int main ( int argc, char** argv ) {
     pthread_t listen;
     pthread_create ( & listen, NULL, listen_thread, theServer );
     while ( true ) {
-        pthread_yield_np();
+        pthread_yield();
     }
     theServer->stop ();
     return 0;

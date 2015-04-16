@@ -31,11 +31,15 @@ int main ( int argc, char** argv ) {
 
 
     std::fstream myfile;
-    myfile.open(argv[1], std::ios::in);
+    myfile.open(argv[1]);
     if(myfile.is_open()) {
 
-        std::streampos size = myfile.tellg();
-        myfile.seekg (0, std::ios::beg);
+        long pos = myfile.tellg();
+        myfile.seekg( 0 , std::ios::end );
+        long size = myfile.tellg();
+        myfile.seekg (pos, std::ios::beg);
+
+        std::cout << size << std::endl;
 
         unsigned char* buff = new unsigned char[size];
         myfile.read((char*)buff,size);

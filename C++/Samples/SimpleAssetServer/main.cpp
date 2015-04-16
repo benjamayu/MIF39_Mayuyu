@@ -22,7 +22,7 @@ int main ( int argc, char** argv ) {
         ByteBuffer temp;
         ByteBuffer message;
         server.receive(client,temp);
-        char* nom = (char*)temp.getData();
+        char* nom = (char*)temp.getData();std::cout << "Nom : " << temp.getData() << std::endl;
         server.receive(client,message); std::cout << "Recv : " << message.getLength() << " bytes" << std::endl;
 
         std::fstream myfile;

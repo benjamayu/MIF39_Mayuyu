@@ -6,6 +6,7 @@
 #include <fstream>
 #include <iostream>
 #include <unistd.h>
+#include <string>
 
 int main ( int argc, char** argv ) {
     QUuid fake;
@@ -22,11 +23,13 @@ int main ( int argc, char** argv ) {
         ByteBuffer temp;
         ByteBuffer message;
         server.receive(client,temp);
-        char* nom = (char*)temp.getData();std::cout << "Nom : " << temp.getData() << std::endl;
+        char* nom = new char[temp.getLength()+1];
+        nom = (char*)temp.getData();std::cout << "Nom : " << temp.getData() <<  " taille : " << temp.getLength() << " || " << strlen((char*)temp.getData())  << std::endl;
+        nom[temp.getLength()] = '\0';
         server.receive(client,message); std::cout << "Recv : " << message.getLength() << " bytes" << std::endl;
 
         std::fstream myfile;
-        myfile.open(nom, std::ios::out);
+        myfile.open((char *)temp.getData(), std::ios::out);
         if(myfile.is_open()) {
             myfile.write((char *)message.getData(), message.getLength());
             myfile.close();
@@ -35,6 +38,7 @@ int main ( int argc, char** argv ) {
             std::cout << "Erreur lors de l'ouverture du fichier" << std::endl;
         }
         client = fake;
+        //delete nom;
     }
     server.stop ();
     return 0;

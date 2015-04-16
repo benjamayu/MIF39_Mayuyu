@@ -273,7 +273,7 @@ bool TcpSocket::isValid ()
 
 void TcpSocket::cleanUp(DisconnectedCallback* cbDisconnect)
 {
-    /*pthread_mutex_lock (&mClientListLock);
+    pthread_mutex_lock (&mClientListLock);
     foreach ( QUuid client, mEndPoints.keys() ) {
         if ( ! mEndPoints[client]->isValid() ) {
             if ( cbDisconnect ) (*cbDisconnect) ( client );
@@ -281,5 +281,5 @@ void TcpSocket::cleanUp(DisconnectedCallback* cbDisconnect)
             mEndPoints.remove(client);
         }
     }
-    pthread_mutex_unlock (&mClientListLock);*/
+    pthread_mutex_unlock (&mClientListLock);
 }

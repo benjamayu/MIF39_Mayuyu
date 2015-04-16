@@ -8,10 +8,8 @@ public:
     Human(const unsigned long _id);
     unsigned int getStamina();
     void setStamina(unsigned int _stamina);
-    unsigned int getFear();
-    void setFear(unsigned int _fear);
 protected:
-    unsigned int stamina, fear;
+    unsigned int stamina;
 };
 
 #endif

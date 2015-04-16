@@ -50,9 +50,10 @@ int main ( int argc, char** argv ) {
         std::istringstream iss( argv[1] );
         std::string mot;
         {
-            std::cout << mot << '\n';
+            // RIEN
         }
         while ( std::getline( iss, mot, '/' ) );
+        std::cout << "NOM " << mot << " taille : " << mot.length() << std::endl;
         ByteBuffer nom((unsigned char*)mot.c_str(), mot.length());
 
         SimpleTcpEndPoint::Options options;

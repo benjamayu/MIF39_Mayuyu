@@ -1,4 +1,5 @@
 #include "Entity.hpp"
+#include <math.h>
 
 Entity::Entity(const unsigned long _id) : id(_id) {}
 
@@ -22,17 +23,26 @@ void Entity::setY(long _y){
 	y=_y;
 }
 
-long Entity::getZ(){
-	return z;
-}
-
-void Entity::setZ(long _z){
-	z=_z;
-}
-
-float Entity::getOrientation(){
+Azimuth Entity::getOrientation(){
     return orientation;
 }
-void Entity::setOrientation(float _orientation){
+
+void Entity::setOrientation(Azimuth _orientation){
     orientation=_orientation;
+}
+
+void Entity::goNorth(int speed) {
+    y+=speed;
+}
+
+void Entity::goEast(int speed) {
+    x+=speed;
+}
+
+void Entity::goSouth(int speed) {
+    y-=speed;
+}
+
+void Entity::goWest(int speed) {
+    x-=speed;
 }

@@ -142,7 +142,7 @@ SharedResourceList WavefrontLoaderOBJ::__load ( FileDescriptor filename ) {
                 Triangle t;
                 t.m_hasNormals = t.m_hasTexcoords = false;
                 if ( mode >= 2 ) t.m_hasTexcoords = true;
-                else if ( mode >= 1 ) t.m_hasNormals = true;
+                if ( mode >= 1 ) t.m_hasNormals = true;
                 for ( int i = 0 ; i < 3 ; i ++ ) {
                     indices = m_tokens [ i + 1 ].split ( "/", QString::SkipEmptyParts );
                     t.m_vertexIndices [ i ] = indices [ 0 ].toUInt () - 1;
@@ -157,7 +157,7 @@ SharedResourceList WavefrontLoaderOBJ::__load ( FileDescriptor filename ) {
                 Triangle t;
                 t.m_hasNormals = t.m_hasTexcoords = false;
                 if ( mode >= 2 ) t.m_hasTexcoords = true;
-                else if ( mode >= 1 ) t.m_hasNormals = true;
+                if ( mode >= 1 ) t.m_hasNormals = true;
                 int idp;
                 idp = 0; indices = m_tokens [ 1 ].split ( "/", QString::SkipEmptyParts );
                 t.m_vertexIndices [ idp ] = indices [ 0 ].toUInt () - 1;

@@ -5,6 +5,7 @@
 
 class NPC : public Entity {
 public:
+    NPC();
 	NPC(const unsigned long _id);
     int getHp();
     void setHp(int _hp);

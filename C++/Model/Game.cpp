@@ -1,21 +1,19 @@
 #include "Game.hpp"
+#include <iostream>
 
 Game::Game() {}
 
-//Map & Game::getMap(){
-//     return map;
-//}
+Map Game::getMap(int id) {
+    if(id < meshMap.size())
+        return meshMap[id];
+    else {
+        std::cout << "Error" << std::endl;
+        exit(1);
+    }
+}
 
-//std::vector<Player> & Game::getPlayers(){
-//     return players;
-//}
-//std::vector<NPC> & Game::getNPC(){
-//     return npc;
-//}
-
-//void Game::addPlayer(const Player & _player){
-//     players.push_back(_player);
-//}
-//void Game::addNPC(const NPC & _npc){
-//     npc.push_back(_npc);
-//}
+void play() {
+    while(true) {
+    //MAYUYU
+    }
+}

@@ -1,5 +1,7 @@
 #include "Projectile.hpp"
 
+Projectile::Projectile() {}
+
 Projectile::Projectile(const unsigned long _id) : Entity::Entity(_id) {}
 
 Projectile::Projectile(const unsigned long _id, Azimuth _or) : Entity::Entity(_id) {

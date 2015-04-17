@@ -5,6 +5,7 @@
 
 class Projectile: public Entity {
 public:
+    Projectile();
     Projectile(const unsigned long _id);
     Projectile(const unsigned long _id, Azimuth _or);
     void forward();

@@ -1,5 +1,7 @@
 #include "NPC.hpp"
 
+NPC::NPC() {}
+
 NPC::NPC(const unsigned long _id) : Entity(_id) {}
 
 int NPC::getHp() {

@@ -5,6 +5,7 @@
 
 class Human : public NPC {
 public:
+    Human();
     Human(const unsigned long _id);
     unsigned int getStamina();
     void setStamina(unsigned int _stamina);

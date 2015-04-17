@@ -6,16 +6,12 @@
 
 class Game {
 public:
-     Game();
+    Game();
 //     Map & getMap();
-//     std::vector<Player> & getPlayers();
-//     std::vector<NPC> & getNPC();
-//     void addPlayer(const Player & _player);
-//     void addNPC(const NPC & _npc);
+    Map getMap(int id);
+    void play();
 protected:
-     std::vector<Map> meshMap;
-//     std::vector<Player> players;
-//     std::vector<NPC> npc;
+    std::vector<Map> meshMap;
 };
 
 #endif

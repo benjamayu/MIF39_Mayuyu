@@ -1,6 +1,8 @@
 #ifndef ENTITY_H
 #define ENTITY_H
 
+#include "Point.hpp"
+
 typedef enum {
     North,
     East,
@@ -10,21 +12,25 @@ typedef enum {
 
 class Entity {
 public:
+    Entity();
     Entity (const unsigned long _id);
     const unsigned long getId();
-    long getX();
-    void setX(long _x);
-    long getY();
-    void setY(long _y);
     Azimuth getOrientation();
     void setOrientation(Azimuth _orientation);
+    Point getCoords();
+    void setCoords(long _x, long _y);
+    void setCoords(Point p);
+    Point getNext();
+    void setNext(long _x, long _y);
+    void setNext(Point p);
     void goNorth(int speed);
     void goEast(int speed);
     void goSouth(int speed);
     void goWest(int speed);
 protected:
     const unsigned long id;
-    long x,y;
+    Point coords;
+    Point next;
     Azimuth orientation;
 };
 

@@ -4,7 +4,13 @@
 #include "NPC.hpp"
 
 class Animal : public NPC {
-     Animal(const unsigned long _id);
+public:
+    Animal();
+    Animal(const unsigned long _id);
+    unsigned long getMaster();
+    void setMaster(unsigned long _master);
+protected:
+    unsigned long master;
 };
 
 #endif
